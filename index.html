@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Rosie's weather app</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/ff56f6300e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="weather-app">
+      <div class="location-search">
+        <form class="row gy-2 gx-3 align-items-center" id="search-form">
+        
+           <div class="col-auto">  
+          <input
+            type="search"
+            class="search-bar form-control"
+            id="autoSizingInput"
+            placeholder="Enter a town or city..."
+          />
+          </div>
+          <div class="col-auto"> 
+          <button type="submit" id="search-button" name="search" class="btn location-search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          </div>
+          <div class="col-auto">
+          <button
+            type="submit"
+            id="location-button"
+            name="use current location"
+            class="btn"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+          </div>
+          </form>
+        </div>
+      
+
+      <section>
+      <div class="row">
+        <div class="col">
+            <img  src="images/transparent-clouds.gif" alt="clouds" class="col animated-weather-icon">
+        
+        </div>
+        <div class="col weather-details">
+          <div class="row">
+            <div class="col-12"><h1 id="city-name">London</h1></div>
+            <div class="col-12"><h2><span class="temperature" id="temperature">13</span> <span class="units"><a href="#" id="celsius-link">°C</a> | <a href="#" id="fahrenheit-link">°F</a></span></h2></div>
+            <div class="col-12"><h6 id="dateTime"></h6></div>
+            <div class="col-12"><h6 id="weatherDescription">Cloudy</h6></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="weather-pane">
+        <div class="select-day">
+        <div class="row">
+          <div class="col">
+            <button class="btn day-button">Today</button>
+          </div>
+          <div class="col">
+            <button class="btn day-button">Tomorrow</button>
+          </div>
+          <div class="col">
+            <button class="btn day-button">Next 5 days</button>
+          </div>
+        </div>
+        </div>
+
+      <section>
+         <div class="row detailed-weather">
+         <div class="col">
+            <div class="card text-center">
+                <div class="card-header bg-transparent">
+    Mon
+  </div>
+  <div class="card-body">
+  <i class="fa-solid fa-cloud-rain weather-icon"></i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">7°C|13°C <br /> <strong>Rainy</strong></li>
+     </ul>
+</div>
+         </div>
+
+         <div class="col text-center">
+            <div class="card">
+                <div class="card-header bg-transparent">
+    Tue
+  </div>
+  <div class="card-body">
+  <i class="fa-solid fa-cloud weather-icon"></i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">4°C|15°C <br /><strong>Cloudy</strong></li>
+     </ul>
+</div>
+         </div>
+         
+         <div class="col text-center">
+            <div class="card">
+                <div class="card-header bg-transparent">
+    Wed
+  </div>
+  <div class="card-body">
+  <i class="fa-solid fa-cloud-sun weather-icon"></i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">6°C|17°C<br /><strong>Cloudy sun</strong></li>
+     </ul>
+</div>
+         </div>
+
+         
+         <div class="col text-center">
+            <div class="card">
+                <div class="card-header bg-transparent">
+    Thur
+  </div>
+  <div class="card-body">
+  <i class="fa-solid fa-cloud-rain weather-icon"></i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">5°C|13°C<br /><strong>Rainy</strong></li>
+     </ul>
+</div>
+         </div>
+
+         <div class="col text-center">
+            <div class="card">
+                <div class="card-header bg-transparent">
+    Fri
+  </div>
+  <div class="card-body">
+  <i class="fa-solid fa-sun weather-icon"></i>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">7°C|18°C<br /><strong>Sunny</strong></li>
+     </ul>
+</div>
+         </div>
+</div>
+         </div>
+         </div>
+      </section>
+      </section>
+      </div>
+    </div>
+    <script src="src/index.js">
+    </script>
+  </body>
+</html>
