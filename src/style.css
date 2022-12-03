@@ -1,5 +1,6 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #ffebeb;
 }
 
 footer {
@@ -9,15 +10,15 @@ footer {
 
 .weather-app {
   padding: 30px;
-  background: #d5ecfc;
+  background: #fff;
   margin: 50px auto;
-  border-radius: 5px;
+  border-radius: 10px;
   max-width: 900px;
 }
 
 .search-bar {
   border-radius: 6px;
-  border-color: #000000;
+  background: #ffebeb;
 }
 
 .form-control {
@@ -25,10 +26,10 @@ footer {
 }
 
 .btn {
-  background: #60cdcd;
+  background: #ffebeb;
   text-align: center;
   color: #fff;
-  border-color: #60cdcd;
+  border-color: #ffebeb;
   border-radius: 6px;
   transition: 200ms ease-in-out;
   box-shadow: none;
@@ -36,9 +37,9 @@ footer {
 }
 
 .btn:hover {
-  color: #60cdcd;
+  color: #ffebeb;
   background: #fff;
-  border-color: #60cdcd;
+  border-color: #ffebeb;
 }
 
 .card {
@@ -57,7 +58,7 @@ footer {
 .units {
   position: relative;
   font-size: 16px;
-  top: -13px;
+  top: -12px;
 }
 
 .animated-weather-icon {
