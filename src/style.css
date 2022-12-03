@@ -1,0 +1,92 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer {
+  text-align: center;
+  padding: 0px 0px 20px 0px;
+}
+
+.weather-app {
+  padding: 30px;
+  background: #d5ecfc;
+  margin: 50px auto;
+  border-radius: 5px;
+  max-width: 900px;
+}
+
+.search-bar {
+  border-radius: 6px;
+  border-color: #000000;
+}
+
+.form-control {
+  width: fit-content;
+}
+
+.btn {
+  background: #60cdcd;
+  text-align: center;
+  color: #fff;
+  border-color: #60cdcd;
+  border-radius: 6px;
+  transition: 200ms ease-in-out;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #60cdcd;
+  background: #fff;
+  border-color: #60cdcd;
+}
+
+.card {
+  display: block;
+  margin: 0 auto;
+}
+
+.day-button {
+  display: block;
+  margin: 0 auto;
+}
+.weather-details {
+  text-align: right;
+}
+
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -13px;
+}
+.select-day {
+  padding: 10px 10px 20px 10px;
+}
+
+.weather-pane {
+  background: #fff;
+  margin-top: 50px;
+  padding: 20px 20px;
+}
+
+.animated-weather-icon {
+  width: 350px;
+}
+
+.detailed-weather {
+  padding: 30px;
+}
+
+.weather-icon {
+  font-size: 30px;
+}
+
+.location-search-button {
+  display: inline inline-block;
+}
+
+.fa-brands,
+fa-github {
+  font-size: 25px;
+  color: #0d2534;
+}
