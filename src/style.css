@@ -1,5 +1,6 @@
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Pacifico", cursive;
+  font-family: "Roboto", sans-serif;
   background: #ffebeb;
 }
 
@@ -26,10 +27,10 @@ footer {
 }
 
 .btn {
-  background: #ffebeb;
+  background: #ff8585;
   text-align: center;
   color: #fff;
-  border-color: #ffebeb;
+  border-color: #ff8585;
   border-radius: 6px;
   transition: 200ms ease-in-out;
   box-shadow: none;
@@ -37,9 +38,9 @@ footer {
 }
 
 .btn:hover {
-  color: #ffebeb;
+  color: #ff8585;
   background: #fff;
-  border-color: #ffebeb;
+  border-color: #ff8585;
 }
 
 .card {
@@ -80,5 +81,5 @@ footer {
 .fa-brands,
 fa-github {
   font-size: 25px;
-  color: #0d2534;
+  color: #ff8585;
 }
