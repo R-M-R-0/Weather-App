@@ -25,8 +25,8 @@ function formatDate(timestamp) {
 // Feature 1
 
 let dateTime = document.querySelector("#dateTime");
-let now = new Date();
-dateTime.innerHTML = formatDate(now);
+let timestamp = new Date();
+dateTime.innerHTML = formatDate(timestamp);
 
 // Feature 2 - user enters city name into search bar
 
@@ -53,12 +53,10 @@ function showWeather(response) {
   let descriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#dateTime");
   tempDisplay.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 // Feature 4 - when location button clicked triggers retrievePosition function
