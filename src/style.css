@@ -1,7 +1,14 @@
 body {
-  font-family: "Pacifico", cursive;
-  font-family: "Roboto", sans-serif;
+  font-family: "Signika Negative", sans-serif;
   background: #ffebeb;
+}
+
+h1,
+h2,
+h6,
+li,
+.search-bar {
+  font-weight: 300;
 }
 
 footer {
@@ -83,5 +90,3 @@ fa-github {
   font-size: 25px;
   color: #ff8585;
 }
-
-
