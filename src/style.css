@@ -3,11 +3,10 @@ body {
   background: #ffebeb;
 }
 
-h1,
-h2,
-h6,
-li,
-footer,
+.city-name,
+.temperature,
+.date-time,
+.weather-description,
 .search-bar {
   font-weight: 300;
 }
@@ -16,6 +15,19 @@ footer {
   text-align: center;
   margin-bottom: 10px;
   margin-top: -30px;
+}
+
+li {
+  list-style: none;
+}
+
+.city-name {
+  font-size: 45px;
+}
+
+.temperature {
+  font-size: 35px;
+  line-height: 15px;
 }
 
 .weather-app {
@@ -61,8 +73,10 @@ footer {
   display: block;
   margin: 0 auto;
 }
+
 .weather-details {
   text-align: right;
+  padding-top: 20px;
 }
 
 .units {
