@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Rosie's weather app</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -12,144 +12,182 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    
     <script
       src="https://kit.fontawesome.com/ff56f6300e.js"
       crossorigin="anonymous"
     ></script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="src/style.css" />
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
 
   <body>
     <div class="container">
-        <div class="weather-app">
-          <div class="location-search">
-            <form class="row gy-2 gx-3 align-items-center" id="search-form">
-        
-              <div class="col-auto">  
+      <div class="weather-app">
+        <div class="location-search">
+          <form class="row gy-2 gx-3 align-items-center" id="search-form">
+            <div class="col-auto">
               <input
-              type="search"
-              class="search-bar form-control border border-0"
-              id="autoSizingInput"
-              placeholder="Enter a town or city..."
-             />
-          </div>
-              <div class="col-auto"> 
-              <button type="submit" id="search-button" name="search" class="btn location-search-button">
-               <i class="fa-solid fa-magnifying-glass"></i>
+                type="search"
+                class="search-bar form-control border border-0"
+                id="autoSizingInput"
+                placeholder="Enter a town or city..."
+              />
+            </div>
+            <div class="col-auto">
+              <button
+                type="submit"
+                id="search-button"
+                name="search"
+                class="btn location-search-button"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
               </button>
-              </div>
-                <div class="col-auto">
-                  <button
-                   type="submit"
-                    id="location-button"
-                   name="use current location"
-                    class="btn"
-                   >
-                  <i class="fa-solid fa-location-dot"></i>
-                 </button>
-               </div>
+            </div>
+            <div class="col-auto">
+              <button
+                type="submit"
+                id="location-button"
+                name="use current location"
+                class="btn"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+              </button>
+            </div>
           </form>
         </div>
-      
 
-      <section>
-      <div class="row">
-        <div class="col">
-            <img  src="assets/animated/clouds.gif" alt="clouds" class="col animated-weather-icon">
-        </div>
-        <div class="col weather-details">
-          <ul>
-            <li class="city-name" id="city-name">London</li>
-            <li><span class="temperature" id="temperature">13</span> <span class="units"><a href="#" id="celsius-link">°C</a> | <a href="#" id="fahrenheit-link">°F</a></span></li>
-            <li class="date-time" id="dateTime"></li>
-            <li class="weather-description" id="weatherDescription">Cloudy</li>
-          </ul>
-        </div>
+        <section>
+          <div class="row">
+            <div class="col">
+              <img
+                src="assets/animated/clouds.gif"
+                alt="clouds"
+                class="col animated-weather-icon"
+              />
+            </div>
+            <div class="col weather-details">
+              <ul>
+                <li class="city-name" id="city-name">London</li>
+                <li>
+                  <span class="temperature" id="temperature">13</span>
+                  <span class="units"
+                    ><a href="#" id="celsius-link">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </li>
+                <li class="date-time" id="dateTime"></li>
+                <li class="weather-description" id="weatherDescription">
+                  Cloudy
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="row detailed-weather">
+            <div class="col">
+              <div class="card text-center bg-transparent border border-0">
+                <div class="card-header bg-transparent border border-0">
+                  Mon
+                </div>
+                <div class="card-body">
+                  <i class="fa-solid fa-cloud-rain weather-icon"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-transparent">
+                    7°C|13°C <br />Rainy
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col text-center">
+              <div class="card bg-transparent border border-0">
+                <div class="card-header bg-transparent border border-0">
+                  Tue
+                </div>
+                <div class="card-body bg-transparent">
+                  <i class="fa-solid fa-cloud weather-icon"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-transparent">
+                    4°C|15°C <br />Cloudy
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col text-center">
+              <div class="card bg-transparent border border-0">
+                <div class="card-header bg-transparent border border-0">
+                  Wed
+                </div>
+                <div class="card-body bg-transparent">
+                  <i class="fa-solid fa-cloud-sun weather-icon"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-transparent">
+                    6°C|17°C<br />Cloudy sun
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col text-center">
+              <div class="card bg-transparent border border-0">
+                <div class="card-header bg-transparent border border-0">
+                  Thur
+                </div>
+                <div class="card-body bg-transparent">
+                  <i class="fa-solid fa-cloud-rain weather-icon"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-transparent">
+                    5°C|13°C<br />Rainy
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col text-center">
+              <div class="card bg-transparent border border-0">
+                <div class="card-header bg-transparent border border-0">
+                  Fri
+                </div>
+                <div class="card-body bg-transparent">
+                  <i class="fa-solid fa-sun weather-icon"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-transparent">
+                    7°C|18°C<br />Sunny
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
-      
-      <section>
-         <div class="row detailed-weather">
-         <div class="col">
-            <div class="card text-center bg-transparent border border-0">
-                <div class="card-header bg-transparent border border-0">
-    Mon
-  </div>
-  <div class="card-body">
-  <i class="fa-solid fa-cloud-rain weather-icon"></i>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item bg-transparent">7°C|13°C <br />Rainy</li>
-     </ul>
-</div>
-         </div>
-
-         <div class="col text-center">
-            <div class="card bg-transparent border border-0">
-                <div class="card-header bg-transparent border border-0">
-    Tue
-  </div>
-  <div class="card-body bg-transparent">
-  <i class="fa-solid fa-cloud weather-icon"></i>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item bg-transparent">4°C|15°C <br />Cloudy</li>
-     </ul>
-</div>
-         </div>
-         
-         <div class="col text-center">
-            <div class="card bg-transparent border border-0">
-                <div class="card-header bg-transparent border border-0">
-    Wed
-  </div>
-  <div class="card-body bg-transparent">
-  <i class="fa-solid fa-cloud-sun weather-icon"></i>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item bg-transparent">6°C|17°C<br />Cloudy sun</li>
-     </ul>
-</div>
-         </div>
-
-         
-         <div class="col text-center">
-            <div class="card bg-transparent border border-0">
-                <div class="card-header bg-transparent border border-0">
-    Thur
-  </div>
-  <div class="card-body bg-transparent">
-  <i class="fa-solid fa-cloud-rain weather-icon"></i>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item bg-transparent">5°C|13°C<br />Rainy</li>
-     </ul>
-</div>
-         </div>
-
-         <div class="col text-center">
-            <div class="card bg-transparent border border-0">
-                <div class="card-header bg-transparent border border-0">
-    Fri
-  </div>
-  <div class="card-body bg-transparent">
-  <i class="fa-solid fa-sun weather-icon"></i>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item bg-transparent">7°C|18°C<br />Sunny</li>
-     </ul>
-</div>
-         </div>
-</div>
-         </div>
-         </div>
-      </section>
-      <footer>Open-sourced on <a href="https://github.com/R-M-R-0/Weather-App" target="_blank"><i class="fa-brands fa-github"></i></a> | Hosted on <a href="https://effulgent-blancmange-7c4005.netlify.app/" target="_blank">Netlify</a></footer>
-      </div>
+      <footer>
+        Open-sourced on
+        <a href="https://github.com/R-M-R-0/Weather-App" target="_blank"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        | Hosted on
+        <a
+          href="https://effulgent-blancmange-7c4005.netlify.app/"
+          target="_blank"
+          >Netlify</a
+        >
+      </footer>
     </div>
-    <script src="src/index.js">
-    </script>
+
+    <script src="src/index.js"></script>
   </body>
 </html>
