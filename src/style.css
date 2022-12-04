@@ -35,6 +35,11 @@ li {
   font-weight: 200;
 }
 
+.specifics {
+  font-weight: 200;
+  text-align: center;
+}
+
 .day {
   font-weight: 300;
 }

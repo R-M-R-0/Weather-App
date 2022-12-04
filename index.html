@@ -28,38 +28,40 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <div class="location-search">
-          <form class="row gy-2 gx-3 align-items-center" id="search-form">
-            <div class="col-auto">
-              <input
-                type="search"
-                class="search-bar form-control border border-0"
-                id="autoSizingInput"
-                placeholder="Enter a town or city..."
-              />
-            </div>
-            <div class="col-auto">
-              <button
-                type="submit"
-                id="search-button"
-                name="search"
-                class="btn location-search-button"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-            <div class="col-auto">
-              <button
-                type="submit"
-                id="location-button"
-                name="use current location"
-                class="btn"
-              >
-                <i class="fa-solid fa-location-dot"></i>
-              </button>
-            </div>
-          </form>
-        </div>
+        <section>
+          <div class="location-search">
+            <form class="row gy-2 gx-3 align-items-center" id="search-form">
+              <div class="col-auto">
+                <input
+                  type="search"
+                  class="search-bar form-control border border-0"
+                  id="autoSizingInput"
+                  placeholder="Enter a town or city..."
+                />
+              </div>
+              <div class="col-auto">
+                <button
+                  type="submit"
+                  id="search-button"
+                  name="search"
+                  class="btn location-search-button"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <div class="col-auto">
+                <button
+                  type="submit"
+                  id="location-button"
+                  name="use current location"
+                  class="btn"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
 
         <section>
           <div class="row">
@@ -87,6 +89,15 @@
               </ul>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <p class="specifics">
+                Precipitation: 3% &nbsp;&nbsp;&nbsp;Humidity: 75%
+                &nbsp;&nbsp;&nbsp;Wind: 6mph
+              </p>
+            </div>
+            <div class="col"></div>
+          </div>
         </section>
 
         <section>
@@ -101,7 +112,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    7°C | 13°C <br />Rainy
+                    7° | 13° <br />Rainy
                   </li>
                 </ul>
               </div>
@@ -117,7 +128,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    4°C | 15°C <br />Cloudy
+                    4° | 15° <br />Cloudy
                   </li>
                 </ul>
               </div>
@@ -133,7 +144,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    6°C | 17°C<br />Cloudy sun
+                    6° | 17°<br />Cloudy sun
                   </li>
                 </ul>
               </div>
@@ -149,7 +160,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    5°C | 13°C<br />Rainy
+                    5° | 13°<br />Rainy
                   </li>
                 </ul>
               </div>
@@ -165,7 +176,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    7°C | 18°C<br />Sunny
+                    7° | 18°<br />Sunny
                   </li>
                 </ul>
               </div>
