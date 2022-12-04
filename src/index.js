@@ -83,7 +83,13 @@ function retrievePosition(position) {
 function showWeatherViaButton(response) {
   let temperatureViaButton = document.querySelector("#temperature");
   let temperature = Math.round(response.data.main.temp);
-  temperatureViaButton.innerHTML = `${temperature}`;
   let locationViaButton = document.querySelector("#city-name");
+  let descriptionViaButton = document.querySelector("#weatherDescription");
+  let humidityViaButton = document.querySelector("#humidity");
+  let windViaButton = document.querySelector("#wind");
+  temperatureViaButton.innerHTML = `${temperature}`;
   locationViaButton.innerHTML = `${response.data.name}`;
+  descriptionViaButton.innerHTML = response.data.weather[0].description;
+  humidityViaButton.innerHTML = response.data.main.humidity;
+  windViaButton.innerHTML = Math.round(response.data.wind.speed);
 }
