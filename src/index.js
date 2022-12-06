@@ -53,10 +53,16 @@ function showWeather(response) {
   let descriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
   tempDisplay.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `assets/animated/${response.data.weather[0].description}.gif`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // Feature 4 - when location button clicked triggers retrievePosition function
