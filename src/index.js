@@ -24,17 +24,6 @@ function formatDate(timestamp) {
 
 // Feature 2 - Retrieve city name value from search bar input and apply this to weather api url. Display city name in app;
 
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#autoSizingInput");
-  let cityDisplay = document.querySelector("#city-name");
-  cityDisplay.innerHTML = `${searchInput.value}`;
-  let apiKey = "aa09763d916df0424c840d55bfc2d2c9";
-  let cityName = `${searchInput.value}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeather);
-}
-
 // Feature 3 - Displays temperature data and weather description for city value retrieved from 'search' function
 function showWeather(response) {
   let tempElement = document.querySelector("#temperature");
@@ -111,18 +100,27 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-// Feature 1
+function search(city) {
+  let cityDisplay = document.querySelector("#city-name");
+  cityDisplay.innerHTML = city;
+  let apiKey = "aa09763d916df0424c840d55bfc2d2c9";
+  let cityName = city;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#autoSizingInput");
+  search(searchInput.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 let dateTime = document.querySelector("#dateTime");
 let timestamp = new Date();
 dateTime.innerHTML = formatDate(timestamp);
-
-// Feature 2 - user enters city name into search bar
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
-
-// Feature 4 - If user clicks location button triggers function findLocation
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", findLocation);
@@ -135,4 +133,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-findLocation();
+search("London");

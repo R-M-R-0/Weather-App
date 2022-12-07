@@ -136,8 +136,5 @@ li {
 .weather-details .active {
   color: #000;
   cursor: default;
-}
-
-.weather-details .active:hover {
   text-decoration: none;
 }
