@@ -22,17 +22,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-// Feature 1
-
-let dateTime = document.querySelector("#dateTime");
-let timestamp = new Date();
-dateTime.innerHTML = formatDate(timestamp);
-
-// Feature 2 - user enters city name into search bar
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
-
 // Feature 2 - Retrieve city name value from search bar input and apply this to weather api url. Display city name in app;
 
 function search(event) {
@@ -48,13 +37,15 @@ function search(event) {
 
 // Feature 3 - Displays temperature data and weather description for city value retrieved from 'search' function
 function showWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let tempDisplay = document.querySelector("#temperature");
+  let tempElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#weatherDescription");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
-  tempDisplay.innerHTML = `${temperature}`;
+
+  celsiusTemperature = Math.round(response.data.main.temp);
+
+  tempElement.innerHTML = Math.round(celsiusTemperature);
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -71,11 +62,6 @@ function findLocation(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
-// Feature 4 - If user clicks location button triggers function findLocation
-
-let locationButton = document.querySelector("#location-button");
-locationButton.addEventListener("click", findLocation);
-
 // Feature 5 - sends lat and lon position to weather api and triggers ShowWeatherViaButton function
 function retrievePosition(position) {
   let apiKey = "aa09763d916df0424c840d55bfc2d2c9";
@@ -88,14 +74,65 @@ function retrievePosition(position) {
 //Feature 6 - displays temperature and location name sent from retrievePosition function on the app
 function showWeatherViaButton(response) {
   let temperatureViaButton = document.querySelector("#temperature");
-  let temperature = Math.round(response.data.main.temp);
   let locationViaButton = document.querySelector("#city-name");
   let descriptionViaButton = document.querySelector("#weatherDescription");
   let humidityViaButton = document.querySelector("#humidity");
   let windViaButton = document.querySelector("#wind");
-  temperatureViaButton.innerHTML = `${temperature}`;
+  let iconViaButton = document.querySelector("#icon");
+
+  celsiusTemperature = Math.round(response.data.main.temp);
+
+  temperatureViaButton.innerHTML = Math.round(celsiusTemperature);
   locationViaButton.innerHTML = `${response.data.name}`;
   descriptionViaButton.innerHTML = response.data.weather[0].description;
   humidityViaButton.innerHTML = response.data.main.humidity;
   windViaButton.innerHTML = Math.round(response.data.wind.speed);
+  iconViaButton.setAttribute(
+    "src",
+    `assets/animated/${response.data.weather[0].description}.gif`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+// Feature 1
+
+let dateTime = document.querySelector("#dateTime");
+let timestamp = new Date();
+dateTime.innerHTML = formatDate(timestamp);
+
+// Feature 2 - user enters city name into search bar
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
+
+// Feature 4 - If user clicks location button triggers function findLocation
+
+let locationButton = document.querySelector("#location-button");
+locationButton.addEventListener("click", findLocation);
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+findLocation();

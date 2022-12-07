@@ -132,3 +132,12 @@ li {
   font-size: 25px;
   color: #ff8585;
 }
+
+.weather-details .active {
+  color: #000;
+  cursor: default;
+}
+
+.weather-details .active:hover {
+  text-decoration: none;
+}
