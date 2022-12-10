@@ -22,7 +22,45 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-// Feature 2 - Retrieve city name value from search bar input and apply this to weather api url. Display city name in app;
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row detailed-weather">`;
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col">
+              <div class="card text-center bg-transparent border border-0">
+                <div
+                  class="card-header bg-transparent border border-0 day"
+                  id="forecast-day"
+                >${day}
+                </div>
+                <div class="card-body">
+                  <img src="assets/static/few clouds.png"
+                  alt="clouds"
+                  width=50
+                  />
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-transparent forecast">
+                    <span id="forecast-min">7</span>° |
+                    <span id="forecast-max">13</span>° <br /><span
+                      id="forecast-description"
+                      >Rainy</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 // Feature 3 - Displays temperature data and weather description for city value retrieved from 'search' function
 function showWeather(response) {
@@ -134,3 +172,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("London");
+displayForecast();
