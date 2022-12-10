@@ -22,7 +22,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class="row detailed-weather">`;
@@ -62,6 +62,13 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "aa09763d916df0424c840d55bfc2d2c9";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Feature 3 - Displays temperature data and weather description for city value retrieved from 'search' function
 function showWeather(response) {
   let tempElement = document.querySelector("#temperature");
@@ -81,6 +88,8 @@ function showWeather(response) {
     `assets/animated/${response.data.weather[0].description}.gif`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 // Feature 4 - when location button clicked triggers retrievePosition function
