@@ -128,6 +128,8 @@ function showWeatherViaButton(response) {
     `assets/animated/${response.data.weather[0].description}.gif`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function displayFahrenheitTemperature(event) {
