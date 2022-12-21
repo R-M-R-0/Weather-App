@@ -64,10 +64,7 @@ function displayForecastCoords(response) {
                     )}</span>° |
                     <span forecast-minid="forecast-min">${Math.round(
                       forecastDay.temperature.minimum
-                    )}</span>° <br /><span class="forecast-description" 
-                      id="forecast-description"
-                      >${forecastDay.condition.description}</span
-                    >
+                    )}</span>° 
                   </li>
                 </ul>
               </div>
@@ -114,10 +111,7 @@ function displayForecastCity(response) {
                     )}</span>° |
                     <span id="forecast-min">${Math.round(
                       forecastDay.temperature.minimum
-                    )}</span>° <br /><br /><span class="forecast-description"
-                      id="forecast-description"
-                      >${forecastDay.condition.description}</span
-                    >
+                    )}</span>° 
                   </li>
                 </ul>
               </div>
@@ -138,11 +132,10 @@ function getForecastCity(response) {
 
 function getForecastCoords(response) {
   let apiKey = "0f1t2c0aa4b32b47bf8356ao93bfbc5b";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${response.longitude}&lat=${response.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecastCoords);
 }
 
-// Feature 3 - Displays temperature data and weather description for city value retrieved from 'search' function
 function showWeather(response) {
   let tempElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#weatherDescription");
@@ -165,13 +158,6 @@ function showWeather(response) {
   getForecastCity(response.data);
 }
 
-// Feature 4 - when location button clicked triggers retrievePosition function
-function findLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(retrievePosition);
-}
-
-// Feature 5 - sends lat and lon position to weather api and triggers ShowWeatherViaButton function
 function retrievePosition(position) {
   let apiKey = "0f1t2c0aa4b32b47bf8356ao93bfbc5b";
   let lat = position.coords.latitude;
@@ -180,7 +166,11 @@ function retrievePosition(position) {
   axios.get(url).then(showWeatherViaButton);
 }
 
-//Feature 6 - displays temperature and location name sent from retrievePosition function on the app
+function findLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
 function showWeatherViaButton(response) {
   let temperatureViaButton = document.querySelector("#temperature");
   let locationViaButton = document.querySelector("#city-name");
@@ -200,9 +190,9 @@ function showWeatherViaButton(response) {
     "src",
     `assets/animated/${response.data.condition.description}.gif`
   );
-  iconElement.setAttribute("alt", response.data.condition.description);
+  iconViaButton.setAttribute("alt", response.data.condition.description);
 
-  getForecastCoords(response.coords);
+  getForecastCoords(response);
 }
 
 function displayFahrenheitTemperature(event) {

@@ -17,12 +17,16 @@ li {
 .city-name,
 .weather-description,
 .date-time,
-.forecast-description {
+.forecast-description,
+.temperature,
+.units {
   text-transform: capitalize;
+  color: #2b2f33;
 }
 
 .city-name {
   font-size: 45px;
+  font-weight: lighter;
 }
 
 .temperature {
@@ -49,6 +53,7 @@ li {
 
 .day {
   font-weight: 300;
+  color: #7f8284;
 }
 .weather-app {
   padding: 30px;
