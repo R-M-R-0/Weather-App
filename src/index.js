@@ -38,7 +38,7 @@ function displayForecastCoords(response) {
   let forecastElement = document.querySelector("#weather-forecast");
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `
@@ -85,7 +85,7 @@ function displayForecastCity(response) {
   let forecastElement = document.querySelector("#weather-forecast");
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `
