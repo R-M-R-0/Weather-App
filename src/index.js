@@ -37,10 +37,11 @@ function displayForecastCoords(response) {
   let forecastHTML = `<div class="row detailed-weather">`;
   let forecastElement = document.querySelector("#weather-forecast");
 
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="col">
               <div class="card text-center bg-transparent border border-0">
                 <div
@@ -58,12 +59,12 @@ function displayForecastCoords(response) {
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    <span id="forecast-max">${Math.round(
+                    <span class="forecast-max" id="forecast-max">${Math.round(
                       forecastDay.temperature.maximum
                     )}</span>° |
-                    <span id="forecast-min">${Math.round(
+                    <span forecast-minid="forecast-min">${Math.round(
                       forecastDay.temperature.minimum
-                    )}</span>° <br /><span
+                    )}</span>° <br /><span class="forecast-description" 
                       id="forecast-description"
                       >${forecastDay.condition.description}</span
                     >
@@ -72,6 +73,7 @@ function displayForecastCoords(response) {
               </div>
             </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -85,10 +87,11 @@ function displayForecastCity(response) {
   let forecastHTML = `<div class="row detailed-weather">`;
   let forecastElement = document.querySelector("#weather-forecast");
 
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="col">
               <div class="card text-center bg-transparent border border-0">
                 <div
@@ -111,7 +114,7 @@ function displayForecastCity(response) {
                     )}</span>° |
                     <span id="forecast-min">${Math.round(
                       forecastDay.temperature.minimum
-                    )}</span>° <br /><span
+                    )}</span>° <br /><br /><span class="forecast-description"
                       id="forecast-description"
                       >${forecastDay.condition.description}</span
                     >
@@ -120,6 +123,7 @@ function displayForecastCity(response) {
               </div>
             </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;

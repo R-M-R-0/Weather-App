@@ -16,7 +16,8 @@ li {
 
 .city-name,
 .weather-description,
-.date-time {
+.date-time,
+.forecast-description {
   text-transform: capitalize;
 }
 
