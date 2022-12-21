@@ -172,6 +172,7 @@ function findLocation(event) {
 }
 
 function showWeatherViaButton(response) {
+  console.log(response);
   let temperatureViaButton = document.querySelector("#temperature");
   let locationViaButton = document.querySelector("#city-name");
   let descriptionViaButton = document.querySelector("#weatherDescription");
@@ -192,7 +193,7 @@ function showWeatherViaButton(response) {
   );
   iconViaButton.setAttribute("alt", response.data.condition.description);
 
-  getForecastCoords(response);
+  getForecastCoords(response.data.coordinates);
 }
 
 function displayFahrenheitTemperature(event) {
