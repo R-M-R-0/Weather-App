@@ -22,6 +22,14 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatTimestamp(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecastCoords(response) {
   console.log(response);
   let forecast = response.data.daily;
@@ -38,18 +46,24 @@ function displayForecastCoords(response) {
                 <div
                   class="card-header bg-transparent border border-0 day"
                   id="forecast-day"
-                >${forecastDay.time}
+                >${formatTimestamp(forecastDay.time)}
                 </div>
                 <div class="card-body">
-                  <img src="assets/static/${forecastDay.condition.description}.png"
+                  <img src="assets/static/${
+                    forecastDay.condition.description
+                  }.png"
                   alt="${forecastDay.condition.description}"
                   width=50
                   />
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    <span id="forecast-max">${forecastDay.temperature.maximum}</span>° |
-                    <span id="forecast-min">${forecastDay.temperature.minimum}</span>° <br /><span
+                    <span id="forecast-max">${Math.round(
+                      forecastDay.temperature.maximum
+                    )}</span>° |
+                    <span id="forecast-min">${Math.round(
+                      forecastDay.temperature.minimum
+                    )}</span>° <br /><span
                       id="forecast-description"
                       >${forecastDay.condition.description}</span
                     >
@@ -80,18 +94,24 @@ function displayForecastCity(response) {
                 <div
                   class="card-header bg-transparent border border-0 day"
                   id="forecast-day"
-                >${forecastDay.time}
+                >${formatTimestamp(forecastDay.time)}
                 </div>
                 <div class="card-body">
-                  <img src="assets/static/${forecastDay.condition.description}.png"
+                  <img src="assets/static/${
+                    forecastDay.condition.description
+                  }.png"
                   alt="${forecastDay.condition.description}"
                   width=50
                   />
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-transparent forecast">
-                    <span id="forecast-max">${forecastDay.temperature.maximum}</span>° |
-                    <span id="forecast-min">${forecastDay.temperature.minimum}</span>° <br /><span
+                    <span id="forecast-max">${Math.round(
+                      forecastDay.temperature.maximum
+                    )}</span>° |
+                    <span id="forecast-min">${Math.round(
+                      forecastDay.temperature.minimum
+                    )}</span>° <br /><span
                       id="forecast-description"
                       >${forecastDay.condition.description}</span
                     >
